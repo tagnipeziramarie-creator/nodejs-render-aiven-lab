@@ -10,8 +10,6 @@ const PORT = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // database connection
-require("dotenv").config();
-
 const db = mysql.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
@@ -32,6 +30,9 @@ db.connect((err) => {
 });
 
 // MAIN PAGE
+app.get("/test", (req, res) => {
+  res.send("App is working");
+});
 app.get("/", (req, res) => {
   db.query("SELECT * FROM students", (err, results) => {
     if (err) {
