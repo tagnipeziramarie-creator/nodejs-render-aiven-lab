@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// database connection
+// database connections
 const db = mysql.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
